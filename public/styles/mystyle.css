@@ -1,12 +1,19 @@
+img{
+    border: transparent;
+    border-radius: 50%;
+}
+
 .currency-box{
     border: solid rgb(224, 224, 224);
     border-width: 10px;
     padding: 20px;
     border-radius: 20px;
+    margin: 10px;
 }
 
-.col-6{
+.inner{
     padding: 10px;
+    color: brown;
 }
 
 .btn{
@@ -16,3 +23,23 @@
 h1{
     text-align: left;
 }
+
+.footer{
+    text-align: center;
+    margin-top: 200px;
+}
+
+p{
+    font-size: large;
+    font-weight: bold;
+}
+
+.search{
+    text-align: right;
+    color: green;
+}
+
+.move {
+    transform: translate(100px, 0px)
+    
+  }

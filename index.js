@@ -22,16 +22,29 @@ app.post("/convert", async (req,res)=>{
     let fullURL = pairConversion+`/${baseCur}`+`/${targetCur}`
     console.log(fullURL)
     try{
-        const response = await axios.get(pairConversion+`/${baseCur}`+`/${targetCur}`)
-        const result = response.data
+        const response = await axios.get(fullURL)
+        result = response.data
+        // console.log(result)
+        // res.render("index.ejs",{rate:result})
+        res.redirect("/")
+    }catch(error){
+        res.redirect("/")
+    }
+})
+
+app.post("/search", async (req,res)=>{
+    const searchCur = req.body["exchange_rate"].toUpperCase()
+    console.log(searchCur)
+    try{
+        const response = await axios.get(API_URL)
+        result = {searchedFor: searchCur,foundCur:response.data.conversion_rates[searchCur]}
         console.log(result)
-        res.render("index.ejs",{rate:result})
+        // res.render("index.ejs",{rate:result})
+        res.redirect("/")
     }catch(error){
         res.render("index.ejs",{rate:"Something went wrong.."})
     }
 })
-
-
 
 
 app.listen(port,(res,req)=>{
